@@ -259,6 +259,9 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /bitnami/openldap/
+              {{- if and .Values.persistence.existingClaim .Values.persistence.subPath }}
+              subPath: {{ .Values.persistence.subPath }}/openldap
+              {{- end }}
             - name: certs
               mountPath: /opt/bitnami/openldap/certs
             {{- range $file :=  (include "openldap.builtinSchemaFiles" (dict "context" . ) | split ",") }}
