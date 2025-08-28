@@ -261,6 +261,7 @@ persistence:
   ##
   # storageClass: "standard-singlewriter"
   # existingClaim: openldap-pvc
+  # subPath: openldap #Used for shared existingClaim pvc
   accessModes:
     - ReadWriteOnce
   size: 8Gi
