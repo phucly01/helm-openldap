@@ -140,6 +140,9 @@ spec:
           volumeMounts:
             - mountPath: /bitnami
               name: data
+              {{- if and .Values.persistence.existingClaim .Values.persistence.subPath }}
+              subPath: {{ .Values.persistence.subPath }}
+              {{- end }}
       {{- end }}
       serviceAccountName: {{ template "openldap.serviceAccountName" . }}
       {{- include "openldap.imagePullSecrets" . | nindent 6 }}
