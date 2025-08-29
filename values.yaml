@@ -419,6 +419,20 @@ sidecars: {}
 ##    imagePullPolicy: Always
 ##    command: ['sh', '-c', 'echo "hello world"']
 ##
+## If you are using shared pvc with subPath, you will need to add initContainers to do chown and chmod on the share point. 
+## Here is an example:
+## initContainers:
+##   - name: shared-pvc-volume
+##     image: docker.io/bitnami/os-shell:latest
+##     command: ['sh', '-c', 'mkdir -p /bitnami/openldap; chown -R 1001:1001 /bitnami; chmod -R g+rwX /bitnami']
+##     securityContext:
+##       runAsUser: 0
+##       runAsGroup: 0
+##       fsGroup: 0
+##     volumeMounts:
+##       - name: data
+##         mountPath: /bitnami
+##         subPath: enter-your-subpath-here
 initContainers: {}
 
 ## Service Account
