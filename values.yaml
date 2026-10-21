@@ -60,7 +60,7 @@ image:
   # Temporary fix
   repository: jpgouin/openldap
   tag: 2.6.9-fix
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   pullSecrets: []
 
 # Set the container log level
@@ -71,7 +71,7 @@ initSchema:
   image: 
     repository: debian
     tag: latest
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     pullSecrets: []
 
 extraLabels: {}
@@ -404,7 +404,7 @@ extraVolumeMounts: []
 ## sidecars:
 ##   - name: your-image-name
 ##     image: your-image
-##     imagePullPolicy: Always
+##     imagePullPolicy: IfNotPresent
 ##     ports:
 ##       - name: portname
 ##         containerPort: 1234
@@ -416,7 +416,7 @@ sidecars: {}
 ## initContainers:
 ##  - name: your-image-name
 ##    image: your-image
-##    imagePullPolicy: Always
+##    imagePullPolicy: IfNotPresent
 ##    command: ['sh', '-c', 'echo "hello world"']
 ##
 ## If you are using shared pvc with subPath, you will need to add initContainers to do chown and chmod on the share point. 
