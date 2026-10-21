@@ -583,7 +583,7 @@ test:
 ltb-passwd:
   enabled : true
   image:
-    tag: 5.2.3
+    tag: 5.3.1
   ingress:
     enabled: true
     annotations: {}
